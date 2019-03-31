@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="d-flex justify-content-between flex-wrap">
+          <div *ngFor="let game of games">
+            <div class="col">
+                <div class="card mb-5" style="width: 18rem;">
+                    <img src='./assets/{{game.img}}' class="card-img-top" alt=''>
+                    <div class="card-body">
+                      <h5 class="card-title"> {{game.name}}</h5>
+                      <p class="card-text"> {{game.description}}.</p>
+                      <a href="#" class="btn btn-primary">Play</a>
+                    </div>
+                  </div>
+            </div>
+            </div> 
+      </div>
+    </div>   
+</div>

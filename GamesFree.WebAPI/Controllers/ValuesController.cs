@@ -38,7 +38,7 @@ namespace GamesFree.WebAPI.Controllers
         public async Task<IActionResult> Get(int id)
         {
             try{
-                var result = _dataContext.Games.FirstOrDefaultAsync(x => x.GameId == id);
+                var result = await _dataContext.Games.FirstOrDefaultAsync(x => x.GameId == id);
                 return Ok(result);
             }catch(System.Exception){
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao acessar banco");
