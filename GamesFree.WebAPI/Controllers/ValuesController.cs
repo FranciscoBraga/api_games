@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GamesFree.WebAPI.Data;
-using GamesFree.WebAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GamesFree.WebAPI.Controllers
 {
@@ -15,34 +11,17 @@ namespace GamesFree.WebAPI.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
-        private readonly DataContext _dataContext;
-        public ValuesController(DataContext dataContext)
-        {
-            _dataContext = dataContext;
-        }
-
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public ActionResult<IEnumerable<string>> Get()
         {
-           try{
-                var result =  await _dataContext.Games.ToListAsync();
-                return Ok(result); 
-           }catch(System.Exception){
-               return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao acessar banco");
-               
-           }
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public ActionResult<string> Get(int id)
         {
-            try{
-                var result = await _dataContext.Games.FirstOrDefaultAsync(x => x.GameId == id);
-                return Ok(result);
-            }catch(System.Exception){
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao acessar banco");
-            }
+            return "value";
         }
 
         // POST api/values
