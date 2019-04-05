@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GamesFree.Repositoy
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T: class
+    public class RepositoryBase<T> :  IRepositoryBase<T> where T: class
     {
         private readonly DataContext _context;
 

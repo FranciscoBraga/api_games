@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GamesFree.Repositoy
 {
-    public interface IRepositoryBase<T>
+    public interface IRepositoryBase<T>  
     {
        IEnumerable<T> FindAll();
        IEnumerable<T> FindByConditions(Expression<Func<T, bool>> predicate);
